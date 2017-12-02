@@ -1,6 +1,6 @@
 %define debug_package %{nil}
 Name:           gopass
-Version:        1.6.1
+Version:        1.6.2
 Release:        0%{?dist}
 Summary:        The slightly more awesome standard unix password manager for teams
 
@@ -37,5 +37,8 @@ cp %{_builddir}/src/github.com/justwatchcom/%{name}/gopass %{buildroot}%{_bindir
 %{_bindir}/gopass
 
 %changelog
+* Sat Dec 02 2017 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 1.6.2-0
+- New release 1.6.2
+
 * Mon Nov 27 2017 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> 1.6.1-0
-- New release 0.31
+- First rpm
