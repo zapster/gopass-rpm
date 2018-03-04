@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 Name:           gopass
 Version:        1.6.11
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The slightly more awesome standard unix password manager for teams
 
 Group:          Applications/System
@@ -22,11 +22,10 @@ Requires:       zsh
 Z shell auto completion for gopass.
 
 %prep
+%setup -q -c -a 0 
 mkdir -p %{_builddir}/src/github.com/justwatchcom
-cd %{_builddir}/src/github.com/justwatchcom
-tar -xvzf %{_sourcedir}/%{name}-%{version}.tar.gz 
-mv %{name}-%{version} %{name}
-cd %{name}
+mv %{name}-%{version} %{_builddir}/src/github.com/justwatchcom/%{name}
+cd %{_builddir}/src/github.com/justwatchcom/%{name}
 
 %build
 export GOPATH="%{_builddir}"
@@ -50,6 +49,9 @@ cp %{_builddir}/src/github.com/justwatchcom/%{name}/zsh.completion %{buildroot}%
 %{_datadir}/zsh/site-functions/_gopass
 
 %changelog
+* Sun Mar 04 2018 Lars Kiesow <lkiesow@uos.de> - 1.6.11-2
+- Fix prep phase
+
 * Thu Mar 01 2018 Lars Kiesow <lkiesow@uos.de> - 1.6.11-1
 - Added zsh completion packet
 
