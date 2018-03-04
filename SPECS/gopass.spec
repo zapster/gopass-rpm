@@ -1,13 +1,15 @@
 %define debug_package %{nil}
+%define repo github.com/justwatchcom/gopass
+
 Name:           gopass
 Version:        1.6.11
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        The slightly more awesome standard unix password manager for teams
 
 Group:          Applications/System
 License:        MIT
-URL:            https://github.com/justwatchcom/gopass
-Source0:        https://github.com/justwatchcom/gopass/releases/download/v%{version}/%{name}-%{version}.tar.gz
+URL:            https://%{repo}
+Source0:        https://%{repo}/releases/download/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  tar gzip git golang
 
@@ -16,30 +18,25 @@ The slightly more awesome standard unix password manager for teams
 
 %package zsh-completion
 Summary:        Z shell completion for gopass
-Requires:       zsh
+Requires:       zsh %{name}
 
 %description zsh-completion
 Z shell auto completion for gopass.
 
 %prep
-%setup -q -c -a 0 
-mkdir -p %{_builddir}/src/github.com/justwatchcom
-mv %{name}-%{version} %{_builddir}/src/github.com/justwatchcom/%{name}
-cd %{_builddir}/src/github.com/justwatchcom/%{name}
+%setup -q -c
+mkdir -p $(dirname src/%{repo})
+mv %{name}-%{version} src/%{repo}
 
 %build
-export GOPATH="%{_builddir}"
-export PATH=$PATH:"%{_builddir}"/bin
-cd %{_builddir}/src/github.com/justwatchcom/%{name}
+export GOPATH="$(pwd)"
+export PATH=$PATH:"$(pwd)"/bin
+cd src/%{repo}
 go build
 
 %install
-mkdir -p %{buildroot}%{_bindir}
-mkdir -p %{buildroot}%{_datadir}/zsh/site-functions/
-
-cp %{_builddir}/src/github.com/justwatchcom/%{name}/gopass %{buildroot}%{_bindir}
-# zsh completion
-cp %{_builddir}/src/github.com/justwatchcom/%{name}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions/_gopass
+install -D src/%{repo}/gopass %{buildroot}%{_bindir}/gopass
+install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions/_gopass
 
 
 %files
@@ -49,6 +46,9 @@ cp %{_builddir}/src/github.com/justwatchcom/%{name}/zsh.completion %{buildroot}%
 %{_datadir}/zsh/site-functions/_gopass
 
 %changelog
+* Sun Mar 04 2018 Lars Kiesow <lkiesow@uos.de> - 1.6.11-3
+- Improve .spec
+
 * Sun Mar 04 2018 Lars Kiesow <lkiesow@uos.de> - 1.6.11-2
 - Fix prep phase
 
