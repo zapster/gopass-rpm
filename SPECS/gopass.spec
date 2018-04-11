@@ -3,7 +3,7 @@
 
 Name:           gopass
 Version:        1.6.11
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        The slightly more awesome standard unix password manager for teams
 
 Group:          Applications/System
@@ -41,11 +41,15 @@ install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions
 
 %files
 %{_bindir}/gopass
+%license src/%{repo}/LICENSE
 
 %files zsh-completion
 %{_datadir}/zsh/site-functions/_gopass
 
 %changelog
+* Wed Apr 11 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.6.11-4
+- Add license file
+
 * Sun Mar 04 2018 Lars Kiesow <lkiesow@uos.de> - 1.6.11-3
 - Improve .spec
 
