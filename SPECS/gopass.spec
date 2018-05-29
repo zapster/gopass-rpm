@@ -1,8 +1,8 @@
 %define debug_package %{nil}
-%define repo github.com/justwatchcom/gopass
+%define repo github.com/gopasspw/gopass
 
 Name:           gopass
-Version:        1.7.1
+Version:        1.7.2
 Release:        1%{?dist}
 Summary:        The slightly more awesome standard unix password manager for teams
 
@@ -47,6 +47,10 @@ install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions
 %{_datadir}/zsh/site-functions/_gopass
 
 %changelog
+* Tue May 29 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.7.2-1
+- New release 1.7.2
+- Change repo url
+
 * Fri May 25 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.7.1-1
 - New release 1.7.1
 
