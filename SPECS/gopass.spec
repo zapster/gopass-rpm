@@ -1,5 +1,5 @@
 %define debug_package %{nil}
-%define repo github.com/justwatchcom/gopass
+%define repo github.com/gopasspw/gopass
 
 Name:           gopass
 Version:        1.8.0
@@ -49,6 +49,7 @@ install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions
 %changelog
 * Wed Jun 06 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.8.0-1
 - New release 1.8.0
+- Update repo url
 
 * Tue May 29 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.7.2-1
 - New release 1.7.2
