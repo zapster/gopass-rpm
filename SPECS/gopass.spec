@@ -24,9 +24,12 @@ Requires:       zsh %{name}
 Z shell auto completion for gopass.
 
 %prep
-%setup -q -c
+%setup -q -c -n %{name}-%{version}
+cd ..
 mkdir -p $(dirname src/%{repo})
 mv %{name}-%{version} src/%{repo}
+mkdir %{name}-%{version}
+mv src %{name}-%{version}
 
 %build
 export GOPATH="$(pwd)"
