@@ -62,7 +62,7 @@ install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions
 * Mon Mar 04 2019 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.8.5-1
 - New release 1.8.5
 
-* Fri Dec 20 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.8.4-1
+* Fri Dec 21 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.8.4-1
 - New release 1.8.4
 
 * Tue Nov 20 2018 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.8.3-1
