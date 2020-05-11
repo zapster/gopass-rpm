@@ -35,7 +35,8 @@ mv src %{name}-%{version}
 export GOPATH="$(pwd)"
 export PATH=$PATH:"$(pwd)"/bin
 cd src/%{repo}
-go build
+make build
+make completion
 
 %install
 install -D src/%{repo}/gopass %{buildroot}%{_bindir}/gopass
