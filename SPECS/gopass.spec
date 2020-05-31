@@ -3,7 +3,7 @@
 
 Name:           gopass
 Version:        1.9.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The slightly more awesome standard unix password manager for teams
 
 Group:          Applications/System
@@ -40,17 +40,22 @@ make completion
 
 %install
 install -D src/%{repo}/gopass %{buildroot}%{_bindir}/gopass
+install -D src/%{repo}/bash.completion %{buildroot}%{_datadir}/bash-completion/completions/gopass
 install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions/_gopass
 
 
 %files
 %{_bindir}/gopass
+%{_datadir}/bash-completion/completions/gopass
 %license src/%{repo}/LICENSE
 
 %files zsh-completion
 %{_datadir}/zsh/site-functions/_gopass
 
 %changelog
+* Sun May 31 2020 Tore Anderson <tore@fud.no> - 1.9.2-2
+- Include bash completion file
+
 * Thu May 14 2020 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.9.2-1
 - New release 1.9.1
 
