@@ -2,7 +2,7 @@
 %define repo github.com/gopasspw/gopass
 
 Name:           gopass
-Version:        1.9.2
+Version:        1.10.1
 Release:        1%{?dist}
 Summary:        The slightly more awesome standard unix password manager for teams
 
@@ -40,17 +40,28 @@ make completion
 
 %install
 install -D src/%{repo}/gopass %{buildroot}%{_bindir}/gopass
+install -D src/%{repo}/cmd/gopass-git-credentials/gopass-git-credentials %{buildroot}%{_bindir}/gopass-git-credentials 
+install -D src/%{repo}/cmd/gopass-hibp/gopass-hibp %{buildroot}%{_bindir}/gopass-hibp 
+install -D src/%{repo}/cmd/gopass-jsonapi/gopass-jsonapi %{buildroot}%{_bindir}/gopass-jsonapi 
+install -D src/%{repo}/cmd/gopass-summon-provider/gopass-summon-provider %{buildroot}%{_bindir}/gopass-summon-provider
 install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions/_gopass
 
 
 %files
 %{_bindir}/gopass
+%{_bindir}/gopass-git-credentials
+%{_bindir}/gopass-hibp
+%{_bindir}/gopass-jsonapi
+%{_bindir}/gopass-summon-provider
 %license src/%{repo}/LICENSE
 
 %files zsh-completion
 %{_datadir}/zsh/site-functions/_gopass
 
 %changelog
+* Sat Sep 19 2020 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.10.1-1
+- New release 1.10.1
+
 * Thu May 14 2020 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.9.2-1
 - New release 1.9.1
 
