@@ -2,7 +2,7 @@
 %define repo github.com/gopasspw/gopass
 
 Name:           gopass
-Version:        1.10.1
+Version:        1.11.0
 Release:        1%{?dist}
 Summary:        The slightly more awesome standard unix password manager for teams
 
@@ -59,6 +59,9 @@ install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions
 %{_datadir}/zsh/site-functions/_gopass
 
 %changelog
+* Thu Jan 21 2021 Dominik Rimpf <dev@drimpf.de> - 1.11.0-1
+- New release 1.11.0
+
 * Sat Sep 19 2020 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.10.1-1
 - New release 1.10.1
 
