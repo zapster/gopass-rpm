@@ -44,6 +44,7 @@ install -D src/%{repo}/cmd/gopass-git-credentials/gopass-git-credentials %{build
 install -D src/%{repo}/cmd/gopass-hibp/gopass-hibp %{buildroot}%{_bindir}/gopass-hibp 
 install -D src/%{repo}/cmd/gopass-jsonapi/gopass-jsonapi %{buildroot}%{_bindir}/gopass-jsonapi 
 install -D src/%{repo}/cmd/gopass-summon-provider/gopass-summon-provider %{buildroot}%{_bindir}/gopass-summon-provider
+install -D src/%{repo}/bash.completion %{buildroot}%{_datadir}/bash-completion/completions/gopass
 install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions/_gopass
 
 
@@ -53,6 +54,7 @@ install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions
 %{_bindir}/gopass-hibp
 %{_bindir}/gopass-jsonapi
 %{_bindir}/gopass-summon-provider
+%{_datadir}/bash-completion/completions/gopass
 %license src/%{repo}/LICENSE
 
 %files zsh-completion
@@ -64,6 +66,9 @@ install -D src/%{repo}/zsh.completion %{buildroot}%{_datadir}/zsh/site-functions
 
 * Sat Sep 19 2020 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.10.1-1
 - New release 1.10.1
+
+* Sun May 31 2020 Tore Anderson <tore@fud.no> - 1.9.2-2
+- Include bash completion file
 
 * Thu May 14 2020 Pierre-Alain TORET <pierre-alain.toret@protonmail.com> - 1.9.2-1
 - New release 1.9.1
